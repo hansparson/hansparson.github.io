@@ -92,6 +92,11 @@ p {
   margin-bottom: 1rem;
 }
 
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 abbr[title],
 abbr[data-original-title] {
   text-decoration: underline;
