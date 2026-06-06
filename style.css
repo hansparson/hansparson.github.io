@@ -315,14 +315,14 @@ img {
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 3.2rem;
   line-height: 1.1;
   margin-bottom: 24px;
 }
 
 @media(min-width: 768px) {
   .hero-title {
-    font-size: 4rem;
+    font-size: 4.5rem;
   }
 }
 
@@ -349,17 +349,17 @@ img {
 .hero-image-wrap::before {
   content: '';
   position: absolute;
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   background: linear-gradient(135deg, var(--secondary-accent) 0%, var(--primary-accent) 100%);
-  opacity: 0.15;
-  filter: blur(20px);
+  opacity: 0.2;
+  filter: blur(30px);
   animation: morphing 15s infinite alternate;
 }
 
 @keyframes morphing {
-  0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  0%   { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
   100% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
 }
 
@@ -998,12 +998,18 @@ textarea.form-control {
 /* --- Profile Photo with Ring Glow --- */
 .profile-photo-ring {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 440px;
+  height: 440px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: float-photo 6s ease-in-out infinite;
+}
+
+@keyframes float-photo {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
 }
 
 .profile-photo-ring::before {
@@ -1042,26 +1048,57 @@ textarea.form-control {
 }
 
 .profile-photo {
-  width: 300px;
-  height: 300px;
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center 15%;
   position: relative;
   z-index: 1;
-  border: 4px solid var(--bg-color);
-  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+  border: 5px solid var(--bg-color);
+  box-shadow: 0 0 60px rgba(0,0,0,0.5);
 }
 
 @media(max-width: 768px) {
   .profile-photo-ring {
-    width: 220px;
-    height: 220px;
+    width: 280px;
+    height: 280px;
   }
   .profile-photo {
-    width: 205px;
-    height: 205px;
+    width: 265px;
+    height: 265px;
   }
+}
+
+/* --- Floating Tech Badges around Photo --- */
+.float-badge {
+  position: absolute;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  z-index: 2;
+  animation: badge-float 3s ease-in-out infinite alternate;
+}
+
+@keyframes badge-float {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-8px); }
+}
+
+.badge-1 { top: 5%;  left: -10%; animation-delay: 0s; }
+.badge-2 { bottom: 10%; left: -8%; animation-delay: 0.8s; }
+.badge-3 { top: 10%;  right: -8%; animation-delay: 0.4s; }
+.badge-4 { bottom: 5%; right: -10%; animation-delay: 1.2s; }
+
+@media(max-width: 900px) {
+  .float-badge { display: none; }
 }
 
 /* --- Animated Stat Counters Bar --- */
