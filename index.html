@@ -254,8 +254,17 @@
         <p class="section-sub">Official credentials, contest awards, and academic achievements</p>
       </div>
 
-      <div class="certificates-grid" id="certificates-grid">
-        <!-- Loaded Dynamically from certificates.json -->
+      <div class="certificates-carousel-container">
+        <button class="carousel-control-btn prev-btn" id="cert-prev-btn" aria-label="Previous Certificate">❮</button>
+        <div class="certificates-carousel-wrapper">
+          <div class="certificates-grid" id="certificates-grid">
+            <!-- Loaded Dynamically from certificates.json -->
+          </div>
+        </div>
+        <button class="carousel-control-btn next-btn" id="cert-next-btn" aria-label="Next Certificate">❯</button>
+      </div>
+      <div class="carousel-dots" id="cert-carousel-dots">
+        <!-- Dots loaded dynamically -->
       </div>
     </div>
   </section>

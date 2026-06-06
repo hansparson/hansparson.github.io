@@ -221,8 +221,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const certModalCloseBtn = document.getElementById("cert-modal-close-btn");
   const certModalTitle = document.getElementById("cert-modal-title");
   const certModalViewer = document.getElementById("cert-modal-viewer");
+  
+  const prevBtn = document.getElementById("cert-prev-btn");
+  const nextBtn = document.getElementById("cert-next-btn");
+  const dotsContainer = document.getElementById("cert-carousel-dots");
 
   let certificatesList = [];
+  let currentIndex = 0;
+
+  function getItemsPerPage() {
+    if (window.innerWidth <= 650) return 1;
+    if (window.innerWidth <= 992) return 2;
+    return 3;
+  }
+
+  function updateCarousel() {
+    const itemsPerPage = getItemsPerPage();
+    const totalItems = certificatesList.length;
+    const maxIndex = Math.max(0, totalItems - itemsPerPage);
+    
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+    if (currentIndex < 0) currentIndex = 0;
+
+    const offset = -(currentIndex * (100 / itemsPerPage));
+    certsGrid.style.transform = `translateX(${offset}%)`;
+
+    // Update Dots
+    const dots = dotsContainer.querySelectorAll(".carousel-dot-indicator");
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === Math.min(idx, currentIndex));
+    });
+  }
 
   fetch("certificates.json")
     .then(res => res.json())
@@ -244,6 +273,43 @@ document.addEventListener("DOMContentLoaded", () => {
           <button class="btn btn-outline cert-view-btn" data-id="${cert.id}" style="width:100%; padding: 8px 16px; font-size: 0.85rem; margin-top: 15px;">View Certificate</button>
         `;
         certsGrid.appendChild(card);
+      });
+
+      // Generate Dots
+      dotsContainer.innerHTML = "";
+      const totalItems = certs.length;
+      for (let i = 0; i < totalItems; i++) {
+        const dot = document.createElement("span");
+        dot.className = "carousel-dot-indicator";
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+          currentIndex = Math.min(i, totalItems - getItemsPerPage());
+          updateCarousel();
+        });
+        dotsContainer.appendChild(dot);
+      }
+
+      // Initialize Carousel
+      updateCarousel();
+      window.addEventListener("resize", updateCarousel);
+
+      // Controls event listeners
+      prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = certificatesList.length - getItemsPerPage(); // Wrap around
+        }
+        updateCarousel();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        if (currentIndex < certificatesList.length - getItemsPerPage()) {
+          currentIndex++;
+        } else {
+          currentIndex = 0; // Wrap around
+        }
+        updateCarousel();
       });
 
       // Bind certificate viewer buttons
