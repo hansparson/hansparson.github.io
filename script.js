@@ -226,30 +226,32 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "auto"; // restore scroll
   }
 
-  // Contact Form Mock Action
+  // Contact Form — mailto: handler
   const contactForm = document.getElementById("contact-form");
   const toastMsg = document.getElementById("toast-msg");
 
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const submitBtn = contactForm.querySelector("button[type='submit']");
-    const originalText = submitBtn.innerHTML;
-    
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = "Sending...";
 
-    // Mock network request
-    setTimeout(() => {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
-      contactForm.reset();
-      
-      // Toast notification animation
-      toastMsg.classList.add("active");
-      setTimeout(() => {
-        toastMsg.classList.remove("active");
-      }, 4000);
-    }, 1500);
+    const name    = contactForm.querySelector("#name").value.trim();
+    const email   = contactForm.querySelector("#email").value.trim();
+    const message = contactForm.querySelector("#message").value.trim();
+
+    const subject = encodeURIComponent(`[Portfolio] Message from ${name}`);
+    const body    = encodeURIComponent(
+      `Hi Hans,\n\nYou have a new message from your portfolio contact form:\n\n` +
+      `Name   : ${name}\nEmail  : ${email}\n\nMessage:\n${message}\n\n---\nSent via hansparson.github.io`
+    );
+
+    const mailtoLink = `mailto:hansparson013@gmail.com?subject=${subject}&body=${body}`;
+
+    // Open email client
+    window.location.href = mailtoLink;
+
+    // Reset form & show toast
+    contactForm.reset();
+    toastMsg.classList.add("active");
+    setTimeout(() => toastMsg.classList.remove("active"), 4000);
   });
 
   // =========================================
