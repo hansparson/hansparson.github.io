@@ -1,0 +1,34 @@
+[
+  {
+    "id": "gostar",
+    "title": "Gostar – C2C Marketplace",
+    "category": "backend",
+    "tech": ["Go", "Echo", "React", "Flutter", "Docker", "Nginx", "DANA API"],
+    "description": "A scalable Customer-to-Customer (C2C) marketplace platform. Architected the Go backend utilizing the Echo web framework, integrated secure payment flows using the DANA API, and containerized the ecosystem with Docker and Nginx reverse proxy.",
+    "link": "https://github.com/hansparson/MarketPlace"
+  },
+  {
+    "id": "lora-tracker",
+    "title": "LoRa Live Device Tracker",
+    "category": "iot",
+    "tech": ["Arduino", "Go", "React", "WebSockets", "Mesh Topology"],
+    "description": "An end-to-end telemetry and safety tracking system. Utilizes hardware transceivers (Arduino) to transmit geolocation and status logs without internet. Employs a mesh topology network and real-time React monitor connected via WebSockets.",
+    "link": "https://github.com/hansparson/card-tracker-be"
+  },
+  {
+    "id": "xauusd-bot",
+    "title": "XAUUSD MT5 AI Scalper Bot",
+    "category": "backend",
+    "tech": ["Python", "PyTorch", "MetaTrader 5", "pandas", "ta"],
+    "description": "An institutional-grade automated trading robot for XAUUSD (Gold) on MetaTrader 5. Implements a hybrid CNN-LSTM-Attention neural network in PyTorch, with custom feature engineering and dynamic risk management.",
+    "link": "https://github.com/hansparson/Metatrader5-XAUUSD-Bot"
+  },
+  {
+    "id": "ai-chatbot",
+    "title": "Local AI Chatbot Orchestrator",
+    "category": "ai",
+    "tech": ["Ollama", "LangGraph", "LangChain", "Python", "ChromaDB"],
+    "description": "A privacy-first local conversational agent. Deploys local Large Language Models (LLMs) via Ollama, using LangGraph for multi-turn state graph routing and Chroma VectorDB for offline document RAG processing.",
+    "link": "https://github.com/hansparson/llm-langchain-data-explain"
+  }
+]

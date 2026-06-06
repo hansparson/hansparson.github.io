@@ -1,348 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with Meyawo landing page.">
-    <meta name="author" content="Devcrud">
-    <title>Hans Parson | Portfolio</title>
-    <!-- font icons -->
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
-    <!-- Bootstrap + Meyawo main styles -->
-	<link rel="stylesheet" href="assets/css/meyawo.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hans Parson | Software Engineer & IoT Specialist</title>
+  
+  <meta name="description" content="Portfolio and blog of Hans Parson, Software Engineer specializing in Golang, Python Backend, and IoT systems.">
+  <meta name="author" content="Hans Parson">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<body>
 
-    <!-- Page Navbar -->
-    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
-        <div class="container">
-            <a class="logo" href="#">Portfolio of Me</a>         
-            <ul class="nav">
-                <li class="item">
-                    <a class="link" href="#home">Home</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#about">About</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#portfolio">Portfolio</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#testmonial">Testmonial</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#blog">Blog</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#contact">Contact</a>
-                </li>
-                <li class="item ml-md-3">
-                    <a href="components.html" class="btn btn-primary">Components</a>
-                </li>
-            </ul>
-            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
-                <div class="hamburger-box">
-                  <div class="hamburger-inner"></div>
-                </div>
-            </a>
-        </div>          
-    </nav><!-- End of Page Navbar -->
+  <!-- Sticky Premium Navigation Bar -->
+  <header class="header-nav" id="top-nav">
+    <div class="container nav-container">
+      <a href="#home" class="nav-brand" id="brand-logo">HANS<span>PARSON</span></a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme" id="theme-button">☀️</button>
+        <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Toggle Menu" id="hamburger-button">☰</button>
+      </div>
+    </div>
+  </header>
 
-    <!-- page header -->
-    <header id="home" class="header">
-        <div class="overlay"></div>
-        <div class="header-content container">
-            <h1 class="header-title">
-                <span class="up">HI!, I am</span>
-                <span class="down">Hans Parson</span>
-            </h1>
-            <p class="header-subtitle">BACK END DEVELOPER and IOT ENGINEER</p>            
-
-            <button class="btn btn-primary">Visit My Works</button>
-        </div>              
-    </header><!-- end of page header -->
-
-    <!-- about section -->
-    <section class="section pt-0" id="about">
-        <!-- container -->
-        <div class="container text-center">
-            <!-- about wrapper -->
-            <div class="about">
-                <div class="about-img-holder">
-                    <img src="assets/imgs/man2.png" class="about-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                </div>
-                <div class="about-caption">
-                    <p class="section-subtitle">Who Am I ?</p>
-                    <h2 class="section-title mb-3">About Me</h2>
-                    <p>
-                        <div>
-                        <p>Hi, thanks for visiting my blog,</p>
-
-                        <p>My name is Hans Parson I am a graduate of Electrical Engineering from Krida Wacana Christian University in Jakarta. I have various experiences in the field of programming, one of which is a Back End Engineer and also worked as an IoT Engineer.
-                        As a Back End Engineer I work for a Financial Technology company in Jakarta with an e-wallet application called MotionPay, here the programming language I use is Python using the Flask framework and Fast Api, in this position I create an API related to payment processes and Top Up balances at various users and merchants. Besides that, I designed system security by using encrypted signatures to make the financial system safe. On the other hand, I also integrate products with various merchants that work with my company. I have made each application feature development based on Bank Indonesia Security Standards.</p>
-
-                        <p>As an IoT Engineer, I work by building Embeded systems where microcontroller programming is needed to build this system. In this position I work with various types of microcontrollers and microprocessors such as Arduino, Raspberry and others. Remembering that my basic is electronics makes me learn a lot to improve my knowledge so I can work as a Backend. Some of the projects that I made in IoT are Weather and Float Detection System (My Thesis), Bluetooth Robot, RFID door access, amplifier, Drone 4g telemetry, face recognition and auto driver car.</p>              
-                    </div>
-
-                    <p class="text-info">
-                        Way of life, I just want to say that
-                        Never regret a day in your life. 
-                        Good days give happiness, 
-                        bad days give experiences, 
-                        the worst days give lessons, 
-                        and the best day give memories.
-                    </p>
-                    <form method="get" action="assets/file/Resume_Hans_Parson.pdf">
-                    <button class="btn-rounded btn btn-outline-primary mt-4" type="submit" >Download CV</button>
-                    </form>
-                </div>              
-            </div><!-- end of about wrapper -->
-        </div><!-- end of container -->
-    </section> <!-- end of about section -->
-
-    <!-- service section -->
-    <section class="section" id="service">
-        <div class="container text-center">
-            <p class="section-subtitle">What I Do ?</p>
-            <h6 class="section-title mb-6">Service</h6>
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/pencil-case.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
-                            <h6 class="title">Adipisicing</h6>
-                            <p class="subtitle">Labore velit culpa adipisci excepturi consequuntur itaque in nam molestias dolorem iste quod.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/responsive.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
-                            <h6 class="title">Sapiente</h6>
-                            <p class="subtitle">Labore velit culpa adipisci excepturi consequuntur itaque in nam molestias dolorem iste quod.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/toolbox.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
-                            <h6 class="title">Placeat</h6>
-                            <p class="subtitle">Labore velit culpa adipisci excepturi consequuntur itaque in nam molestias dolorem iste quod.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/analytics.svg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
-                            <h6 class="title">Iusto</h6>
-                            <p class="subtitle">Labore velit culpa adipisci excepturi consequuntur itaque in nam molestias dolorem iste quod.</p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- end of row -->
+  <!-- Hero Section -->
+  <section class="hero-section section" id="home">
+    <div class="container grid-2">
+      <div class="hero-content-wrap">
+        <span class="hero-subtitle">Welcome to my portal</span>
+        <h1 class="hero-title">Building High-Performance <span class="gradient-text">APIs & Intelligent Systems</span></h1>
+        <p class="hero-desc">I am an Electrical Engineer turned Backend Developer with over 5 years of professional experience writing clean, scalable services in Go and Python, and designing IoT devices.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary" id="view-works-button">View Projects</a>
+          <a href="#contact" class="btn btn-outline" id="get-in-touch-button">Get in Touch</a>
         </div>
-    </section><!-- end of service section -->
+      </div>
+      
+      <div class="hero-image-wrap">
+        <!-- Modern Coding SVG Illustration -->
+        <svg class="hero-svg-illustration" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="50" y="50" width="400" height="300" rx="20" fill="var(--bg-card)" stroke="var(--border-color)" stroke-width="6"/>
+          <rect x="50" y="50" width="400" height="40" rx="10" fill="var(--border-color)"/>
+          <circle cx="80" cy="70" r="8" fill="#FF5F56"/>
+          <circle cx="104" cy="70" r="8" fill="#FFBD2E"/>
+          <circle cx="128" cy="70" r="8" fill="#27C93F"/>
+          <!-- Code Blocks Representation -->
+          <rect x="80" y="120" width="180" height="15" rx="5" fill="var(--primary-accent)"/>
+          <rect x="80" y="150" width="280" height="15" rx="5" fill="var(--text-secondary)"/>
+          <rect x="110" y="180" width="220" height="15" rx="5" fill="var(--secondary-accent)"/>
+          <rect x="110" y="210" width="140" height="15" rx="5" fill="var(--primary-accent)"/>
+          <rect x="80" y="240" width="200" height="15" rx="5" fill="var(--text-secondary)"/>
+          <!-- Futuristic connection lines representing IoT -->
+          <path d="M300 240 L380 200 L440 280" stroke="var(--primary-accent)" stroke-width="4" stroke-dasharray="8 6"/>
+          <circle cx="380" cy="200" r="10" fill="var(--primary-accent)"/>
+          <circle cx="440" cy="280" r="14" fill="var(--secondary-accent)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
 
-    <!-- portfolio section -->
-    <section class="section" id="portfolio">
-        <div class="container text-center">
-            <p class="section-subtitle">What I Did ?</p>
-            <h6 class="section-title mb-6">Portfolio</h6>
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="#" class="portfolio-card">
-                        <img src="assets/imgs/folio-1.jpg" class="portfolio-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Web Designing</h5>
-                                <p class="font-weight-normal">Category: Web Templates</p>
-                            </span>                         
-                        </span>                     
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/folio-2.jpg" class="img-responsive rounded" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Web Designing</h5>
-                                <p class="font-weight-normal">Category: Web Templates</p>
-                            </span>                         
-                        </span>                         
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/folio-3.jpg" class="img-responsive rounded" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Web Designing</h5>
-                                <p class="font-weight-normal">Category: Web Templates</p>
-                            </span>                         
-                        </span>                     
-                    </a>
-                </div>
-            </div><!-- end of row -->
-        </div><!-- end of container -->
-    </section> <!-- end of portfolio section -->
+  <!-- About & Work Experience -->
+  <section class="section" id="about">
+    <div class="container text-center">
+      <div class="section-header">
+        <h2 class="section-title">Professional Journey</h2>
+      </div>
+      
+      <p class="hero-desc" style="margin: 0 auto 40px auto; text-align: center;">
+        I hold a Bachelor of Engineering in Electrical Engineering from UKRIDA. Realizing my deep passion for programming, I transitioned to software engineering where I merge hardware insights with modern backend standards.
+      </p>
 
-    <!-- section -->
-    <section class="section-sm bg-primary">
-        <!-- container -->
-        <div class="container text-center text-sm-left">
-            <!-- row -->
-            <div class="row align-items-center">
-                <div class="col-sm offset-md-1 mb-4 mb-md-0">
-                    <h6 class="title text-light">Want to work with me?</h6>
-                    <p class="m-0 text-light">Always feel Free to Contact & Hire me</p>
-                </div>
-                <div class="col-sm offset-sm-2 offset-md-3">
-                    <button class="btn btn-lg my-font btn-light rounded">Hire Me</button>
-                </div>
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </section> <!-- end of section -->
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">February 2024 - Present</span>
+          <h3 class="timeline-title">PT Verihubs Inteligensia Nusantara <span>- Back End Developer</span></h3>
+          <ul class="timeline-desc">
+            <li>Architecting and maintaining high-availability backend microservices utilizing Python and Golang.</li>
+            <li>Leading third-party API integrations for identity and automatic document verification databases.</li>
+            <li>Optimizing RESTful APIs, securing databases, and compiling AI-driven Face Recognition modules.</li>
+          </ul>
+        </div>
+        
+        <div class="timeline-item">
+          <span class="timeline-date">August 2022 - February 2024</span>
+          <h3 class="timeline-title">PT MNC Teknologi Nusantara (MotionPay) <span>- Back End Developer</span></h3>
+          <ul class="timeline-desc">
+            <li>Developed core e-money transactional pipelines (payments, cashout, top-ups) using Python and Go.</li>
+            <li>Implemented Bank Indonesia Open API standards (SNAP compliance) using secure HMAC/RSA encryption.</li>
+            <li>Managed containerized databases via Docker and maintained deployments within GitLab CI/CD cycles.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- testimonial section -->
-    <section class="section" id="testmonial">
-        <div class="container text-center">
-            <p class="section-subtitle">What Think Client About Me ?</p>
-            <h6 class="section-title mb-6">Testmonial</h6>
+  <!-- Skills Filter Section -->
+  <section class="section" id="skills" style="background-color: var(--glass-bg);">
+    <div class="container text-center">
+      <div class="section-header">
+        <h2 class="section-title">Technical Expertise</h2>
+      </div>
+      
+      <div class="skills-categories" id="skills-tabs">
+        <button class="skills-category-btn active" data-category="all" id="tab-all">All Skills</button>
+        <button class="skills-category-btn" data-category="backend" id="tab-backend">Backend & DB</button>
+        <button class="skills-category-btn" data-category="frontend" id="tab-frontend">Frontend</button>
+        <button class="skills-category-btn" data-category="devops" id="tab-devops">DevOps</button>
+        <button class="skills-category-btn" data-category="iot" id="tab-iot">IoT & HW</button>
+      </div>
+      
+      <div class="skills-grid" id="skills-grid">
+        <!-- Rendered Dynamically via JS -->
+      </div>
+    </div>
+  </section>
 
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/avatar2.jpg" class="testimonial-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">                           
-                        </div>
-                        <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque doloribus autem aperiam earum nostrum omnis blanditiis corporis perspiciatis adipisci nihil.</p>
-                            <h6 class="testimonial-card-title">Emily Reb</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="testimonial-card">
-                        <div class="testimonial-card-img-holder">
-                            <img src="assets/imgs/avatar3.jpg" class="testimonial-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">                        
-                        </div>
-                        <div class="testimonial-card-body">
-                            <p class="testimonial-card-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque doloribus autem aperiam earum nostrum omnis blanditiis corporis perspiciatis adipisci nihil.</p>
-                            <h6 class="testimonial-card-title">Emily Reb</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end of container -->
-    </section> <!-- end of testimonial section -->
-    
-    <!-- blog section -->
-    <section class="section" id="blog">
-        <!-- container -->
-        <div class="container text-center">
-            <p class="section-subtitle">Recent Posts?</p>
-            <h6 class="section-title mb-6">Blog</h6>
-            <!-- blog-wrapper -->
-            <div class="blog-card">
-                <div class="blog-card-header">
-                    <img src="assets/imgs/img-1.jpg" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                </div>
-                <div class="blog-card-body">
-                    <h5 class="blog-card-title">Consectetur adipisicing elit</h6>
+  <!-- Projects Showcase Section -->
+  <section class="section" id="projects">
+    <div class="container text-center">
+      <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+      
+      <div class="projects-grid" id="projects-grid">
+        <!-- Loaded Dynamically from projects.json -->
+      </div>
+    </div>
+  </section>
 
-                    <p class="blog-card-caption">
-                        <a href="#">By: Admin</a>
-                        <a href="#"><i class="ti-heart text-danger"></i> 234</a>
-                        <a href="#"><i class="ti-comment"></i> 123</a>
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nesciunt qui sit velit delectus voluptates, repellat ipsum culpa id deleniti. Rerum debitis facilis accusantium neque numquam mollitia modi quasi distinctio.</p>
+  <!-- Blog Posts Section -->
+  <section class="section" id="blog" style="background-color: var(--glass-bg);">
+    <div class="container text-center">
+      <div class="section-header">
+        <h2 class="section-title">Engineering Blog</h2>
+      </div>
+      
+      <div class="blog-grid" id="blog-grid">
+        <!-- Loaded Dynamically from blog.json -->
+      </div>
+    </div>
+  </section>
 
-                    <p><b>Necessitatibus nihil impedit! Ex nisi eveniet, dolor aliquid consequuntur repudiandae.</b></p>
-                    <p>Magnam in repellat enim harum omnis aperiam! Explicabo illo, commodi, dolor blanditiis cupiditate harum nisi vero accusamus laudantium voluptatibus dolores quae obcaecati.</p>
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container text-center">
+      <div class="section-header">
+        <h2 class="section-title">Let's Collaborate</h2>
+      </div>
+      
+      <div class="contact-wrap">
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="your.email@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" rows="5" class="form-control" placeholder="Describe your project or inquiry..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;" id="send-button">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-                    <a href="#" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
-                </div>
-            </div><!-- end of blog wrapper -->
-
-            <!-- blog-wrapper -->
-            <div class="blog-card">
-                <div class="blog-card-header">
-                    <img src="assets/imgs/img-2.jpg" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                </div>
-                <div class="blog-card-body">
-                    <h5 class="blog-card-title">Explicabo illo</h6>
-
-                    <p class="blog-card-caption">
-                        <a href="#">By: Admin</a>
-                        <a href="#"><i class="ti-heart text-danger"></i> 456</a>
-                        <a href="#"><i class="ti-comment"></i> 264</a>
-                    </p>
-                    
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit excepturi laborum enim, vitae ipsam atque eum, ad iusto consequuntur voluptas, esse doloribus. Perferendis porro quisquam vitae exercitationem aliquid, minus eos laborum repudiandae, cumque debitis iusto omnis praesentium? Laborum placeat sit adipisci illum tempore maxime, esse qui quae? Molestias excepturi corporis similique doloribus. Esse vitae earum architecto nulla non dolores illum at perspiciatis quod, et deleniti cupiditate reiciendis harum facere, delectus eum commodi soluta distinctio sit repudiandae possimus sunt. Ipsum, rem.</p>
-
-                    <a href="#" class="blog-card-link">Read more <i class="ti-angle-double-right"></i></a>
-                </div>
-            </div><!-- end of blog wrapper -->
-
-        </div><!-- end of container -->
-    </section><!-- end of blog section -->
-
-    <!-- contact section -->
-    <section class="section" id="contact">
-        <div class="container text-center">
-            <p class="section-subtitle">How can you communicate?</p>
-            <h6 class="section-title mb-5">Contact Me</h6>
-            <!-- contact form -->
-            <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
-                <div class="form-row">
-                    <div class="form-group col-sm-6">
-                        <input type="text" size="50" class="form-control" placeholder="Your Name" required>                 
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="email" class="form-control" placeholder="Enter Email"requried>                 
-                    </div>
-                    <div class="form-group col-sm-12">
-                        <textarea name="comment" id="comment" rows="6"   class="form-control" placeholder="Write Something"></textarea>
-                    </div>
-                    <div class="form-group col-sm-12 mt-3">
-                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">                  
-                    </div>
-                </div>  
-            </form><!-- end of contact form -->
-        </div><!-- end of container -->
-    </section><!-- end of contact section -->
-
-    <!-- footer -->
+  <!-- Footer -->
+  <footer class="footer">
     <div class="container">
-        <footer class="footer">       
-            <p class="mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.devcrud.com">DevCRUD</a></p>
-            <div class="social-links text-right m-auto ml-sm-auto">
-                <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
-                <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
-                <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
-                <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
-                <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
-                <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
-            </div>
-        </footer>
-    </div> <!-- end of page footer -->
-	
-	<!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+      <p>&copy; <span id="year">2026</span> Hans Parson. Built with Vanilla JS & HSL CSS variables.</p>
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/hans-parson" target="_blank" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://github.com/hansparson" target="_blank" class="social-link" aria-label="GitHub">GitHub</a>
+        <a href="mailto:hansparson013@gmail.com" class="social-link" aria-label="Email">Email</a>
+        <a href="http://blacktedong013.blogspot.com" target="_blank" class="social-link" aria-label="Blog">Blog</a>
+      </div>
+    </div>
+  </footer>
 
-    <!-- bootstrap 3 affix -->
-	<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+  <!-- Single Page Details Blog Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal">✕</button>
+      <div class="modal-meta" id="modal-meta">May 20, 2026 • 5 min read</div>
+      <h2 class="modal-title" id="modal-title">Article Title</h2>
+      <div class="modal-body" id="modal-body">
+        <!-- Dynamic HTML Content -->
+      </div>
+    </div>
+  </div>
 
-    <!-- Meyawo js -->
-    <script src="assets/js/meyawo.js"></script>
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toast-msg">
+    <span>✅ Message sent successfully! I'll get back to you shortly.</span>
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
