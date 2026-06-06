@@ -127,22 +127,51 @@ document.addEventListener("DOMContentLoaded", () => {
     projects.forEach(project => {
       const icon = getCategoryIcon(project.category);
       const card = document.createElement("div");
-      card.className = "project-card";
-      const imgHtml = project.image
-        ? `<div class="project-img-wrap"><img src="${project.image}" alt="${project.title}" class="project-img" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`
-        : ``;
-      card.innerHTML = `
-        ${imgHtml}
-        <div class="project-top">
-          <span class="project-icon">${icon}</span>
-          <h3 class="project-title">${project.title}</h3>
-          <p class="project-desc">${project.description}</p>
-          <div class="project-tech-list">
-            ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join("")}
+      
+      if (project.image) {
+        card.className = "project-card has-image";
+        card.innerHTML = `
+          <div class="project-mockup-header">
+            <span class="mockup-dot mockup-red"></span>
+            <span class="mockup-dot mockup-yellow"></span>
+            <span class="mockup-dot mockup-green"></span>
+            <span class="mockup-url">hansparson.dev/${project.id}</span>
           </div>
-        </div>
-        <a href="${project.link}" target="_blank" class="project-link">View Project ↗</a>
-      `;
+          <div class="project-img-wrap">
+            <img src="${project.image}" alt="${project.title}" class="project-img" loading="lazy" onerror="this.parentElement.style.display='none'">
+          </div>
+          <div class="project-top">
+            <span class="project-icon">${icon}</span>
+            <h3 class="project-title">${project.title}</h3>
+            <p class="project-desc">${project.description}</p>
+            <div class="project-tech-list">
+              ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join("")}
+            </div>
+          </div>
+          <a href="${project.link}" target="_blank" class="project-link">View Project ↗</a>
+        `;
+      } else {
+        card.className = "project-card terminal-card";
+        card.innerHTML = `
+          <div class="project-terminal-header">
+            <div class="terminal-dots">
+              <span class="mockup-dot mockup-red"></span>
+              <span class="mockup-dot mockup-yellow"></span>
+              <span class="mockup-dot mockup-green"></span>
+            </div>
+            <span class="terminal-title">bash - hans@server:~/${project.id}</span>
+          </div>
+          <div class="project-top">
+            <span class="project-icon">${icon}</span>
+            <h3 class="project-title">${project.title}</h3>
+            <p class="project-desc">${project.description}</p>
+            <div class="project-tech-list">
+              ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join("")}
+            </div>
+          </div>
+          <a href="${project.link}" target="_blank" class="project-link">View Project ↗</a>
+        `;
+      }
       projectsGrid.appendChild(card);
     });
   }
@@ -182,26 +211,29 @@ document.addEventListener("DOMContentLoaded", () => {
       blogPosts = posts;
       blogGrid.innerHTML = "";
       posts.forEach(post => {
-        const card = document.createElement("div");
-        card.className = "blog-card";
-        card.innerHTML = `
-          <div>
-            <div class="blog-meta">
-              <span>${post.date}</span>
-              <span>${post.readTime}</span>
-            </div>
-            <h3 class="blog-title">${post.title}</h3>
-            <p class="blog-summary">${post.summary}</p>
+        const row = document.createElement("div");
+        row.className = "blog-row";
+        row.innerHTML = `
+          <div class="blog-row-left">
+            <span class="blog-row-date">${post.date}</span>
+            <span class="blog-row-time">⏱️ ${post.readTime}</span>
           </div>
-          <span class="blog-readmore" data-id="${post.id}">Read Article ➡️</span>
+          <div class="blog-row-center">
+            <h3 class="blog-row-title">${post.title}</h3>
+            <p class="blog-row-summary">${post.summary}</p>
+          </div>
+          <div class="blog-row-right">
+            <span class="blog-row-action" data-id="${post.id}">Read Article ↗</span>
+          </div>
         `;
-        blogGrid.appendChild(card);
+        blogGrid.appendChild(row);
       });
 
       // Bind article modal triggers
-      document.querySelectorAll(".blog-readmore").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const postId = btn.dataset.id;
+      document.querySelectorAll(".blog-row").forEach(row => {
+        row.addEventListener("click", () => {
+          const actionBtn = row.querySelector(".blog-row-action");
+          const postId = actionBtn.dataset.id;
           const post = blogPosts.find(p => p.id === postId);
           if (post) {
             modalMeta.innerText = `${post.date} • ${post.readTime}`;
