@@ -215,6 +215,75 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => console.error("Error loading blog posts:", err));
 
+  // Load Certificates Database dynamically
+  const certsGrid = document.getElementById("certificates-grid");
+  const certModalOverlay = document.getElementById("cert-modal-overlay");
+  const certModalCloseBtn = document.getElementById("cert-modal-close-btn");
+  const certModalTitle = document.getElementById("cert-modal-title");
+  const certModalViewer = document.getElementById("cert-modal-viewer");
+
+  let certificatesList = [];
+
+  fetch("certificates.json")
+    .then(res => res.json())
+    .then(certs => {
+      certificatesList = certs;
+      certsGrid.innerHTML = "";
+      certs.forEach(cert => {
+        const card = document.createElement("div");
+        card.className = "cert-card";
+        const icon = cert.type === "pdf" ? "📄" : "🖼️";
+        card.innerHTML = `
+          <div class="cert-card-header">
+            <span class="cert-type-icon">${icon}</span>
+            <span class="cert-date">${cert.date}</span>
+          </div>
+          <h3 class="cert-title">${cert.title}</h3>
+          <span class="cert-issuer">🏢 ${cert.issuer}</span>
+          <p class="cert-desc">${cert.description}</p>
+          <button class="btn btn-outline cert-view-btn" data-id="${cert.id}" style="width:100%; padding: 8px 16px; font-size: 0.85rem; margin-top: 15px;">View Certificate</button>
+        `;
+        certsGrid.appendChild(card);
+      });
+
+      // Bind certificate viewer buttons
+      document.querySelectorAll(".cert-view-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const certId = btn.dataset.id;
+          const cert = certificatesList.find(c => c.id === certId);
+          if (cert) {
+            certModalTitle.innerText = cert.title;
+            if (cert.type === "pdf") {
+              certModalViewer.innerHTML = `
+                <object data="${cert.file}" type="application/pdf" width="100%" height="500px">
+                  <p>Your browser does not support viewing PDFs inline. <a href="${cert.file}" target="_blank" class="project-link">Download PDF instead ↗</a></p>
+                </object>
+              `;
+            } else {
+              certModalViewer.innerHTML = `
+                <img src="${cert.file}" alt="${cert.title}" style="max-width: 100%; max-height: 500px; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+              `;
+            }
+            certModalOverlay.classList.add("active");
+            document.body.style.overflow = "hidden"; // disable scroll
+          }
+        });
+      });
+    })
+    .catch(err => console.error("Error loading certificates:", err));
+
+  // Close Certificate Modal triggers
+  certModalCloseBtn.addEventListener("click", closeCertModal);
+  certModalOverlay.addEventListener("click", (e) => {
+    if (e.target === certModalOverlay) closeCertModal();
+  });
+
+  function closeCertModal() {
+    certModalOverlay.classList.remove("active");
+    certModalViewer.innerHTML = "";
+    document.body.style.overflow = "auto"; // restore scroll
+  }
+
   // Close Modal triggers
   modalCloseBtn.addEventListener("click", closeModal);
   modalOverlay.addEventListener("click", (e) => {

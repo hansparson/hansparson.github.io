@@ -29,6 +29,7 @@
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
+        <a href="#certificates" class="nav-link">Certificates</a>
         <a href="#blog" class="nav-link">Blog</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
@@ -245,6 +246,20 @@
     </div>
   </section>
 
+  <!-- Certificates Section -->
+  <section class="section reveal" id="certificates">
+    <div class="container text-center">
+      <div class="section-header">
+        <h2 class="section-title">Certifications & Achievements</h2>
+        <p class="section-sub">Official credentials, contest awards, and academic achievements</p>
+      </div>
+
+      <div class="certificates-grid" id="certificates-grid">
+        <!-- Loaded Dynamically from certificates.json -->
+      </div>
+    </div>
+  </section>
+
   <!-- Blog Posts Section -->
   <section class="section reveal" id="blog" style="background-color: var(--glass-bg);">
     <div class="container text-center">
@@ -306,6 +321,17 @@
       <h2 class="modal-title" id="modal-title">Article Title</h2>
       <div class="modal-body" id="modal-body">
         <!-- Dynamic HTML Content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Certificate Lightbox Modal -->
+  <div class="modal-overlay" id="cert-modal-overlay">
+    <div class="modal-box cert-modal-box">
+      <button class="modal-close-btn" id="cert-modal-close-btn" aria-label="Close Modal">✕</button>
+      <h3 class="modal-title" id="cert-modal-title" style="margin-bottom: 20px;">Certificate View</h3>
+      <div id="cert-modal-viewer" class="cert-modal-viewer">
+        <!-- PDF embed or Image element will be injected here -->
       </div>
     </div>
   </div>
