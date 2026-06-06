@@ -64,75 +64,53 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Skill Filtering & Display
-  const skills = {
-    backend: [
-      { name: "Go (Golang)", icon: "🐹" },
-      { name: "Python", icon: "🐍" },
-      { name: "PHP", icon: "🐘" },
-      { name: "Java", icon: "☕" },
-      { name: "PostgreSQL", icon: "🐘" },
-      { name: "MySQL", icon: "🐬" },
-      { name: "MongoDB", icon: "🍃" },
-      { name: "Redis", icon: "📦" }
-    ],
-    frontend: [
-      { name: "React", icon: "⚛️" },
-      { name: "Flutter", icon: "💙" },
-      { name: "HTML5 & CSS3", icon: "🌐" },
-      { name: "JavaScript (ES6)", icon: "⚡" },
-      { name: "Tailwind CSS", icon: "🎨" }
-    ],
-    devops: [
-      { name: "Docker", icon: "🐳" },
-      { name: "Nginx", icon: "⚙️" },
-      { name: "Git & GitLab", icon: "🦊" },
-      { name: "Linux (Ubuntu)", icon: "🐧" },
-      { name: "VPS Server", icon: "☁️" }
-    ],
-    iot: [
-      { name: "Embedded Systems", icon: "📟" },
-      { name: "Arduino & NodeMCU", icon: "🔌" },
-      { name: "LoRa Networks", icon: "📡" },
-      { name: "PLC Programming", icon: "🤖" }
-    ]
-  };
-
+  // Skill Filtering & Display (guard: only if old grid exists)
   const skillsGrid = document.getElementById("skills-grid");
-  const categoryButtons = document.querySelectorAll(".skills-category-btn");
-
-  function renderSkills(category) {
-    skillsGrid.innerHTML = "";
-    let skillsList = [];
-    
-    if (category === "all") {
-      skillsList = [...skills.backend, ...skills.frontend, ...skills.devops, ...skills.iot];
-    } else {
-      skillsList = skills[category];
+  if (skillsGrid) {
+    const skills = {
+      backend: [
+        { name: "Go (Golang)", icon: "🐹" }, { name: "Python", icon: "🐍" },
+        { name: "PHP", icon: "🐘" }, { name: "Java", icon: "☕" },
+        { name: "PostgreSQL", icon: "🐘" }, { name: "MySQL", icon: "🐬" },
+        { name: "MongoDB", icon: "🍃" }, { name: "Redis", icon: "📦" }
+      ],
+      frontend: [
+        { name: "React", icon: "⚛️" }, { name: "Flutter", icon: "💙" },
+        { name: "HTML5 & CSS3", icon: "🌐" }, { name: "JavaScript (ES6)", icon: "⚡" },
+        { name: "Tailwind CSS", icon: "🎨" }
+      ],
+      devops: [
+        { name: "Docker", icon: "🐳" }, { name: "Nginx", icon: "⚙️" },
+        { name: "Git & GitLab", icon: "🦊" }, { name: "Linux (Ubuntu)", icon: "🐧" },
+        { name: "VPS Server", icon: "☁️" }
+      ],
+      iot: [
+        { name: "Embedded Systems", icon: "📟" }, { name: "Arduino & NodeMCU", icon: "🔌" },
+        { name: "LoRa Networks", icon: "📡" }, { name: "PLC Programming", icon: "🤖" }
+      ]
+    };
+    const categoryButtons = document.querySelectorAll(".skills-category-btn");
+    function renderSkills(category) {
+      skillsGrid.innerHTML = "";
+      const skillsList = category === "all"
+        ? [...skills.backend, ...skills.frontend, ...skills.devops, ...skills.iot]
+        : skills[category];
+      skillsList.forEach(skill => {
+        const card = document.createElement("div");
+        card.className = "skill-card";
+        card.innerHTML = `<span class="skill-icon">${skill.icon}</span><h4 class="skill-name">${skill.name}</h4>`;
+        skillsGrid.appendChild(card);
+      });
     }
-
-    skillsList.forEach(skill => {
-      const card = document.createElement("div");
-      card.className = "skill-card";
-      card.innerHTML = `
-        <span class="skill-icon">${skill.icon}</span>
-        <h4 class="skill-name">${skill.name}</h4>
-      `;
-      skillsGrid.appendChild(card);
+    categoryButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        categoryButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderSkills(btn.dataset.category);
+      });
     });
+    renderSkills("all");
   }
-
-  // Bind category button clicks
-  categoryButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      categoryButtons.forEach(btn => btn.classList.remove("active"));
-      button.classList.add("active");
-      renderSkills(button.dataset.category);
-    });
-  });
-
-  // Initial render of all skills
-  renderSkills("all");
 
   // Load Projects Database dynamically
   const projectsGrid = document.getElementById("projects-grid");
