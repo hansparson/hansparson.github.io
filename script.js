@@ -136,27 +136,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load Projects Database dynamically
   const projectsGrid = document.getElementById("projects-grid");
-  
+  const projectFilterBtns = document.querySelectorAll(".project-filter-btn");
+  let allProjects = [];
+
+  function getCategoryIcon(cat) {
+    const icons = { iot: "📡", ai: "🤖", backend: "⚙️", fullstack: "🌐", hardware: "🔩" };
+    return icons[cat] || "💻";
+  }
+
+  function renderProjects(projects) {
+    projectsGrid.innerHTML = "";
+    projects.forEach(project => {
+      const icon = getCategoryIcon(project.category);
+      const card = document.createElement("div");
+      card.className = "project-card";
+      const imgHtml = project.image
+        ? `<div class="project-img-wrap"><img src="${project.image}" alt="${project.title}" class="project-img" loading="lazy" onerror="this.parentElement.style.display='none'"></div>`
+        : ``;
+      card.innerHTML = `
+        ${imgHtml}
+        <div class="project-top">
+          <span class="project-icon">${icon}</span>
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-desc">${project.description}</p>
+          <div class="project-tech-list">
+            ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join("")}
+          </div>
+        </div>
+        <a href="${project.link}" target="_blank" class="project-link">View Project ↗</a>
+      `;
+      projectsGrid.appendChild(card);
+    });
+  }
+
   fetch("projects.json")
     .then(res => res.json())
     .then(projects => {
-      projectsGrid.innerHTML = "";
-      projects.forEach(project => {
-        const icon = project.category === "iot" ? "📡" : project.category === "ai" ? "🤖" : "💻";
-        const card = document.createElement("div");
-        card.className = "project-card";
-        card.innerHTML = `
-          <div class="project-top">
-            <span class="project-icon">${icon}</span>
-            <h3 class="project-title">${project.title}</h3>
-            <p class="project-desc">${project.description}</p>
-            <div class="project-tech-list">
-              ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join("")}
-            </div>
-          </div>
-          <a href="${project.link}" target="_blank" class="project-link">View Repository ↗</a>
-        `;
-        projectsGrid.appendChild(card);
+      allProjects = projects;
+      renderProjects(allProjects);
+
+      // Bind project filter buttons
+      projectFilterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          projectFilterBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          const cat = btn.dataset.cat;
+          const filtered = cat === "all" ? allProjects : allProjects.filter(p => p.category === cat);
+          renderProjects(filtered);
+        });
       });
     })
     .catch(err => console.error("Error loading projects:", err));

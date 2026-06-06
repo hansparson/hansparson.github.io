@@ -1,34 +1,110 @@
 [
   {
     "id": "gostar",
-    "title": "Gostar – C2C Marketplace",
-    "category": "backend",
+    "title": "Gostar – C2C Marketplace Platform",
+    "category": "fullstack",
     "tech": ["Go", "Echo", "React", "Flutter", "Docker", "Nginx", "DANA API"],
-    "description": "A scalable Customer-to-Customer (C2C) marketplace platform. Architected the Go backend utilizing the Echo web framework, integrated secure payment flows using the DANA API, and containerized the ecosystem with Docker and Nginx reverse proxy.",
-    "link": "https://github.com/hansparson/MarketPlace"
+    "description": "A scalable C2C marketplace with Go (Echo) backend, cross-platform Flutter mobile app, and React web. Integrated DANA payment gateway and deployed via Docker + Nginx reverse proxy.",
+    "link": "https://github.com/hansparson/MarketPlace",
+    "image": null
   },
   {
     "id": "lora-tracker",
-    "title": "LoRa Live Device Tracker",
+    "title": "LoRa Mesh Live Device Tracker",
     "category": "iot",
-    "tech": ["Arduino", "Go", "React", "WebSockets", "Mesh Topology"],
-    "description": "An end-to-end telemetry and safety tracking system. Utilizes hardware transceivers (Arduino) to transmit geolocation and status logs without internet. Employs a mesh topology network and real-time React monitor connected via WebSockets.",
-    "link": "https://github.com/hansparson/card-tracker-be"
+    "tech": ["Arduino", "Go", "Gin", "GORM", "PostgreSQL", "WebSockets", "LoRa"],
+    "description": "End-to-end off-grid telemetry and tracking system. Hardware nodes (Arduino + LoRa) transmit GPS data over a mesh topology without internet. A Go backend pushes real-time coordinates to a React dashboard via WebSockets.",
+    "link": "https://github.com/hansparson/card-tracker-be",
+    "image": null
   },
   {
     "id": "xauusd-bot",
     "title": "XAUUSD MT5 AI Scalper Bot",
-    "category": "backend",
+    "category": "ai",
     "tech": ["Python", "PyTorch", "MetaTrader 5", "pandas", "ta"],
-    "description": "An institutional-grade automated trading robot for XAUUSD (Gold) on MetaTrader 5. Implements a hybrid CNN-LSTM-Attention neural network in PyTorch, with custom feature engineering and dynamic risk management.",
-    "link": "https://github.com/hansparson/Metatrader5-XAUUSD-Bot"
+    "description": "Institutional-grade automated trading robot for XAUUSD (Gold) on MetaTrader 5. Implements a hybrid CNN-LSTM-Attention neural network in PyTorch with custom feature engineering and dynamic risk management.",
+    "link": "https://github.com/hansparson/Metatrader5-XAUUSD-Bot",
+    "image": null
   },
   {
     "id": "ai-chatbot",
     "title": "Local AI Chatbot Orchestrator",
     "category": "ai",
     "tech": ["Ollama", "LangGraph", "LangChain", "Python", "ChromaDB"],
-    "description": "A privacy-first local conversational agent. Deploys local Large Language Models (LLMs) via Ollama, using LangGraph for multi-turn state graph routing and Chroma VectorDB for offline document RAG processing.",
-    "link": "https://github.com/hansparson/llm-langchain-data-explain"
+    "description": "A privacy-first local conversational agent. Deploys LLMs via Ollama, uses LangGraph for multi-turn state graph routing, and ChromaDB for offline document RAG processing.",
+    "link": "https://github.com/hansparson/llm-langchain-data-explain",
+    "image": null
+  },
+  {
+    "id": "permodam",
+    "title": "PERMODAM – Drinking Water Depot Monitor",
+    "category": "fullstack",
+    "tech": ["Python", "PyQt5", "Kodular", "MySQL", "PHP", "WhatsApp API", "Barcode"],
+    "description": "BRIN-funded research project (Software Copyright No. EC00202215075). A complete monitoring ecosystem for drinking water depots: an Android app (Kodular) with WhatsApp/email reminders for labs, and a Python/PyQt5 desktop management dashboard with MySQL + PHP backend and barcode generation.",
+    "link": "https://github.com/hansparson",
+    "image": "assets/projects/permodam.jpg"
+  },
+  {
+    "id": "drone-4g",
+    "title": "4G-Controlled Medical Payload Drone",
+    "category": "iot",
+    "tech": ["4G LTE", "Telemetry", "Drone", "Embedded Systems", "Networking"],
+    "description": "Finalist project at Telkomsel Digital Lounge Hackathon 2020 (Health Category). Extended standard drone telemetry range to unlimited distance by routing drone control over a 4G LTE cellular network, enabling payload delivery of medical supplies to remote areas.",
+    "link": "https://www.youtube.com/watch?v=s8rtGlBjfZA",
+    "image": "assets/projects/drone4g.jpg"
+  },
+  {
+    "id": "kri-robot",
+    "title": "KRI Humanoid Robot – National Competition",
+    "category": "hardware",
+    "tech": ["Embedded C", "Arduino", "Servo Motors", "Sensor Fusion", "PCB Design"],
+    "description": "Designed and built a humanoid robot for the Kontes Robot Indonesia (KRI) 2019 national competition. The robot featured multi-servo articulation, sensor fusion for balance, and custom PCB design using Eagle PCB.",
+    "link": "https://github.com/hansparson",
+    "image": "assets/projects/kri_robot.jpg"
+  },
+  {
+    "id": "flood-iot",
+    "title": "IoT Flash Flood & Weather Detection System",
+    "category": "iot",
+    "tech": ["Raspberry Pi", "Arduino", "SMS", "Weather Sensors", "MySQL", "Eagle PCB"],
+    "description": "Undergraduate thesis project: an IoT-based flash flood and weather detection system. A Raspberry Pi server aggregates data from weather sensors (anemometer, rain gauge, temperature) and water level sensors 10 km apart. Alerts are sent via SMS to trigger an alarm system before flooding occurs.",
+    "link": "https://github.com/hansparson",
+    "image": "assets/projects/skripsi.jpg"
+  },
+  {
+    "id": "divescom",
+    "title": "DIVESCOM – Cooperative Savings & Loans App",
+    "category": "fullstack",
+    "tech": ["Android", "Firebase", "Midtrans", "PHP", "MySQL", "Hosting"],
+    "description": "Full-featured digital cooperative app for a savings & loan institution in Tana Toraja, South Sulawesi. Features user authentication (Firebase), savings & loan transaction management, and integrated Midtrans payment gateway for online repayment.",
+    "link": "https://github.com/hansparson",
+    "image": "assets/projects/divescom.png"
+  },
+  {
+    "id": "rfid-access",
+    "title": "RFID Face-Capture Student Attendance System",
+    "category": "iot",
+    "tech": ["Raspberry Pi", "RFID", "MySQL", "PHP", "Camera Module", "LCD 7\""],
+    "description": "Built during internship at UKRIDA. An RFID-triggered door access and attendance system that simultaneously captures a photo of the student and stores it in the campus database. Features a 7-inch LCD for real-time campus info display.",
+    "link": "https://github.com/hansparson",
+    "image": null
+  },
+  {
+    "id": "nuvoton-gyro",
+    "title": "Gyroscope Game Controller (ARM Nuvoton)",
+    "category": "hardware",
+    "tech": ["ARM Nuvoton", "Gyroscope", "Embedded C", "Wireless", "PCB Design"],
+    "description": "A tilt-based wireless game controller built on an ARM Nuvoton microcontroller. Uses a gyroscope for motion-to-control mapping, enabling PC racing game control and wireless robot car navigation. Featured in PLC Maranatha 2018 competition.",
+    "link": "https://github.com/hansparson",
+    "image": "assets/projects/nuvoton.jpg"
+  },
+  {
+    "id": "smart-plant",
+    "title": "Smart Automatic IoT Plant Irrigation",
+    "category": "iot",
+    "tech": ["NodeMCU", "Soil Sensor", "pH Sensor", "IoT", "PHP", "MySQL", "Dashboard"],
+    "description": "An IoT-connected automated plant irrigation system using soil moisture sensors to trigger watering. Monitors soil humidity, pH levels, and nutrients in real-time via a web dashboard connected to a cloud database.",
+    "link": "https://github.com/hansparson",
+    "image": "assets/projects/smart_plant.jpg"
   }
 ]
