@@ -410,3 +410,56 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+// =========================================
+// 5. CUSTOM CURSOR + MOUSE SPOTLIGHT
+// (outside DOMContentLoaded — runs globally)
+// =========================================
+const cursorDot  = document.getElementById("cursor-dot");
+const cursorRing = document.getElementById("cursor-ring");
+const spotlight  = document.getElementById("mouse-spotlight");
+
+let mouseX = 0, mouseY = 0;
+let ringX  = 0, ringY  = 0;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  // Dot follows instantly
+  cursorDot.style.left = mouseX + "px";
+  cursorDot.style.top  = mouseY + "px";
+
+  // Spotlight follows with slight smooth delay
+  spotlight.style.left = mouseX + "px";
+  spotlight.style.top  = mouseY + "px";
+});
+
+// Ring follows with lerp lag for premium feel
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  cursorRing.style.left = ringX + "px";
+  cursorRing.style.top  = ringY + "px";
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+// Hover effect on interactive elements
+const interactiveEls = document.querySelectorAll(
+  "a, button, .bento-card, .project-card, .blog-card, .skill-card, .btn"
+);
+interactiveEls.forEach(el => {
+  el.addEventListener("mouseenter", () => {
+    cursorRing.classList.add("hover");
+    cursorDot.style.transform = "translate(-50%, -50%) scale(1.5)";
+  });
+  el.addEventListener("mouseleave", () => {
+    cursorRing.classList.remove("hover");
+    cursorDot.style.transform = "translate(-50%, -50%) scale(1)";
+  });
+});
+
+// Click effect
+document.addEventListener("mousedown", () => cursorDot.classList.add("click"));
+document.addEventListener("mouseup",   () => cursorDot.classList.remove("click"));

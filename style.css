@@ -1133,3 +1133,176 @@ textarea.form-control {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* =========================================
+   CUSTOM CURSOR
+   ========================================= */
+* { cursor: none; }
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--primary-accent);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, background 0.2s;
+  box-shadow: 0 0 8px var(--primary-accent), 0 0 20px var(--primary-accent);
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--primary-accent);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, top 0.08s linear, left 0.08s linear;
+  opacity: 0.7;
+}
+
+.cursor-ring.hover {
+  width: 56px;
+  height: 56px;
+  border-color: var(--secondary-accent);
+  opacity: 0.5;
+}
+
+.cursor-dot.click {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) {
+  * { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* =========================================
+   MOUSE SPOTLIGHT
+   ========================================= */
+.mouse-spotlight {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, hsla(172, 66%, 50%, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  transition: top 0.1s ease, left 0.1s ease;
+  top: 50%; left: 50%;
+}
+
+/* =========================================
+   BENTO GRID — SKILLS SECTION
+   ========================================= */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 16px;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.bento-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 28px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  border-radius: 20px 20px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-color-hover);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.bento-card:hover::before { opacity: 1; }
+
+/* Unique accent per card */
+#bento-backend::before { background: linear-gradient(90deg, #00e5bc, #00b4d8); }
+#bento-devops::before  { background: linear-gradient(90deg, #2196f3, #00e5bc); }
+#bento-iot::before     { background: linear-gradient(90deg, #9c27b0, #2196f3); }
+#bento-ai::before      { background: linear-gradient(90deg, #ff6b35, #f7c948); }
+#bento-frontend::before{ background: linear-gradient(90deg, #61dafb, #764abc); }
+#bento-fintech::before { background: linear-gradient(90deg, #f7c948, #00e5bc); }
+
+/* Card sizes */
+.bento-large  { grid-column: span 2; grid-row: span 2; }
+.bento-medium { grid-column: span 2; }
+.bento-small  { grid-column: span 1; }
+.bento-wide   { grid-column: span 4; }
+
+.bento-icon {
+  font-size: 2.2rem;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.bento-title {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.bento-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.bento-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.bento-tags span {
+  background: var(--primary-accent-glow);
+  color: var(--primary-accent);
+  border: 1px solid var(--primary-accent);
+  border-radius: 100px;
+  padding: 3px 12px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+/* Responsive Bento */
+@media (max-width: 900px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .bento-large { grid-column: span 2; }
+  .bento-wide  { grid-column: span 2; }
+  .bento-small { grid-column: span 1; }
+}
+
+@media (max-width: 560px) {
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-large, .bento-medium, .bento-small, .bento-wide {
+    grid-column: span 1;
+  }
+}

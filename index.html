@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Mouse Spotlight -->
+  <div class="mouse-spotlight" id="mouse-spotlight"></div>
+
 
   <!-- Sticky Premium Navigation Bar -->
   <header class="header-nav" id="top-nav">
@@ -110,23 +117,53 @@
     </div>
   </section>
 
-  <!-- Skills Filter Section -->
+  <!-- Skills Bento Grid Section -->
   <section class="section reveal" id="skills" style="background-color: var(--glass-bg);">
     <div class="container text-center">
       <div class="section-header">
         <h2 class="section-title">Technical Expertise</h2>
       </div>
       
-      <div class="skills-categories" id="skills-tabs">
-        <button class="skills-category-btn active" data-category="all" id="tab-all">All Skills</button>
-        <button class="skills-category-btn" data-category="backend" id="tab-backend">Backend & DB</button>
-        <button class="skills-category-btn" data-category="frontend" id="tab-frontend">Frontend</button>
-        <button class="skills-category-btn" data-category="devops" id="tab-devops">DevOps</button>
-        <button class="skills-category-btn" data-category="iot" id="tab-iot">IoT & HW</button>
-      </div>
-      
-      <div class="skills-grid" id="skills-grid">
-        <!-- Rendered Dynamically via JS -->
+      <div class="bento-grid" id="bento-grid">
+        <!-- Bento 1: Backend - Large -->
+        <div class="bento-card bento-large" id="bento-backend">
+          <div class="bento-icon">🐹</div>
+          <h3 class="bento-title">Backend Development</h3>
+          <p class="bento-desc">Go (Golang) · Python · PHP · Java</p>
+          <div class="bento-tags">
+            <span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span><span>Redis</span>
+          </div>
+        </div>
+        <!-- Bento 2: DevOps -->
+        <div class="bento-card bento-medium" id="bento-devops">
+          <div class="bento-icon">🐳</div>
+          <h3 class="bento-title">DevOps & Cloud</h3>
+          <p class="bento-desc">Docker · Nginx · Linux · GitLab CI/CD · VPS</p>
+        </div>
+        <!-- Bento 3: IoT -->
+        <div class="bento-card bento-medium" id="bento-iot">
+          <div class="bento-icon">📡</div>
+          <h3 class="bento-title">IoT & Hardware</h3>
+          <p class="bento-desc">Arduino · NodeMCU · LoRa · PLC · Embedded C</p>
+        </div>
+        <!-- Bento 4: AI/ML -->
+        <div class="bento-card bento-small" id="bento-ai">
+          <div class="bento-icon">🤖</div>
+          <h3 class="bento-title">AI & ML</h3>
+          <p class="bento-desc">PyTorch · LangChain · RAG · OpenCV</p>
+        </div>
+        <!-- Bento 5: Frontend -->
+        <div class="bento-card bento-small" id="bento-frontend">
+          <div class="bento-icon">⚛️</div>
+          <h3 class="bento-title">Frontend</h3>
+          <p class="bento-desc">React · Flutter · HTML5 · Tailwind CSS</p>
+        </div>
+        <!-- Bento 6: Fintech -->
+        <div class="bento-card bento-wide" id="bento-fintech">
+          <div class="bento-icon">💳</div>
+          <h3 class="bento-title">Fintech & APIs</h3>
+          <p class="bento-desc">SNAP BI Standard · HMAC/RSA Encryption · Payment Gateway · Idempotency · REST API Design</p>
+        </div>
       </div>
     </div>
   </section>
