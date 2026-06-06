@@ -1295,14 +1295,10 @@ textarea.form-control {
 /* Responsive Bento */
 @media (max-width: 900px) {
   .bento-grid { grid-template-columns: repeat(2, 1fr); }
-  .bento-large { grid-column: span 2; }
-  .bento-wide  { grid-column: span 2; }
-  .bento-small { grid-column: span 1; }
+  .bento-r1-c2 { grid-column: span 2; }
 }
 
 @media (max-width: 560px) {
   .bento-grid { grid-template-columns: 1fr; }
-  .bento-large, .bento-medium, .bento-small, .bento-wide {
-    grid-column: span 1;
-  }
+  .bento-r1-c2 { grid-column: span 1; }
 }
