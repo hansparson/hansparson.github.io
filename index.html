@@ -35,11 +35,12 @@
 
   <!-- Hero Section -->
   <section class="hero-section section" id="home">
+    <canvas id="mesh-canvas"></canvas>
     <div class="container grid-2">
       <div class="hero-content-wrap">
-        <span class="hero-subtitle">Welcome to my portal</span>
-        <h1 class="hero-title">Building High-Performance <span class="gradient-text">APIs & Intelligent Systems</span></h1>
-        <p class="hero-desc">I am an Electrical Engineer turned Backend Developer with over 5 years of professional experience writing clean, scalable services in Go and Python, and designing IoT devices.</p>
+        <span class="hero-subtitle">Hi, I'm Hans Parson 👋</span>
+        <h1 class="hero-title">I Build <span class="gradient-text" id="typing-text">Backend APIs</span><span class="typing-cursor">|</span></h1>
+        <p class="hero-desc">Electrical Engineer turned Backend Developer with <strong>5+ years</strong> of professional experience — building scalable Go & Python services, fintech systems, and IoT integrations.</p>
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-primary" id="view-works-button">View Projects</a>
           <a href="#contact" class="btn btn-outline" id="get-in-touch-button">Get in Touch</a>
@@ -47,30 +48,15 @@
       </div>
       
       <div class="hero-image-wrap">
-        <!-- Modern Coding SVG Illustration -->
-        <svg class="hero-svg-illustration" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="50" y="50" width="400" height="300" rx="20" fill="var(--bg-card)" stroke="var(--border-color)" stroke-width="6"/>
-          <rect x="50" y="50" width="400" height="40" rx="10" fill="var(--border-color)"/>
-          <circle cx="80" cy="70" r="8" fill="#FF5F56"/>
-          <circle cx="104" cy="70" r="8" fill="#FFBD2E"/>
-          <circle cx="128" cy="70" r="8" fill="#27C93F"/>
-          <!-- Code Blocks Representation -->
-          <rect x="80" y="120" width="180" height="15" rx="5" fill="var(--primary-accent)"/>
-          <rect x="80" y="150" width="280" height="15" rx="5" fill="var(--text-secondary)"/>
-          <rect x="110" y="180" width="220" height="15" rx="5" fill="var(--secondary-accent)"/>
-          <rect x="110" y="210" width="140" height="15" rx="5" fill="var(--primary-accent)"/>
-          <rect x="80" y="240" width="200" height="15" rx="5" fill="var(--text-secondary)"/>
-          <!-- Futuristic connection lines representing IoT -->
-          <path d="M300 240 L380 200 L440 280" stroke="var(--primary-accent)" stroke-width="4" stroke-dasharray="8 6"/>
-          <circle cx="380" cy="200" r="10" fill="var(--primary-accent)"/>
-          <circle cx="440" cy="280" r="14" fill="var(--secondary-accent)"/>
-        </svg>
+        <div class="profile-photo-ring">
+          <img src="assets/projects/hans_profile.jpg" alt="Hans Parson" class="profile-photo" id="profile-photo">
+        </div>
       </div>
     </div>
   </section>
 
   <!-- About & Work Experience -->
-  <section class="section" id="about">
+  <section class="section reveal" id="about">
     <div class="container text-center">
       <div class="section-header">
         <h2 class="section-title">Professional Journey</h2>
@@ -79,6 +65,26 @@
       <p class="hero-desc" style="margin: 0 auto 40px auto; text-align: center;">
         I hold a Bachelor of Engineering in Electrical Engineering from UKRIDA. Realizing my deep passion for programming, I transitioned to software engineering where I merge hardware insights with modern backend standards.
       </p>
+
+      <!-- Animated Stat Counters -->
+      <div class="stats-bar" id="stats-bar">
+        <div class="stat-item">
+          <span class="stat-number" data-target="5" id="stat-years">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="2" id="stat-companies">0</span>
+          <span class="stat-label">Companies</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="12" id="stat-projects">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Projects Built</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="3" id="stat-awards">0</span>
+          <span class="stat-label">Competitions</span>
+        </div>
+      </div>
 
       <div class="timeline">
         <div class="timeline-item">
@@ -105,7 +111,7 @@
   </section>
 
   <!-- Skills Filter Section -->
-  <section class="section" id="skills" style="background-color: var(--glass-bg);">
+  <section class="section reveal" id="skills" style="background-color: var(--glass-bg);">
     <div class="container text-center">
       <div class="section-header">
         <h2 class="section-title">Technical Expertise</h2>
@@ -126,7 +132,7 @@
   </section>
 
   <!-- Projects Showcase Section -->
-  <section class="section" id="projects">
+  <section class="section reveal" id="projects">
     <div class="container text-center">
       <div class="section-header">
         <h2 class="section-title">Featured Projects</h2>
@@ -149,7 +155,7 @@
   </section>
 
   <!-- Blog Posts Section -->
-  <section class="section" id="blog" style="background-color: var(--glass-bg);">
+  <section class="section reveal" id="blog" style="background-color: var(--glass-bg);">
     <div class="container text-center">
       <div class="section-header">
         <h2 class="section-title">Engineering Blog</h2>
@@ -162,7 +168,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="section" id="contact">
+  <section class="section reveal" id="contact">
     <div class="container text-center">
       <div class="section-header">
         <h2 class="section-title">Let's Collaborate</h2>
@@ -196,7 +202,7 @@
         <a href="https://linkedin.com/in/hans-parson" target="_blank" class="social-link" aria-label="LinkedIn">LinkedIn</a>
         <a href="https://github.com/hansparson" target="_blank" class="social-link" aria-label="GitHub">GitHub</a>
         <a href="mailto:hansparson013@gmail.com" class="social-link" aria-label="Email">Email</a>
-        <a href="http://blacktedong013.blogspot.com" target="_blank" class="social-link" aria-label="Blog">Blog</a>
+        <a href="https://hansparson.github.io/#blog" target="_blank" class="social-link" aria-label="Blog">Blog</a>
       </div>
     </div>
   </footer>

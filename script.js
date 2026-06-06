@@ -273,4 +273,140 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 4000);
     }, 1500);
   });
+
+  // =========================================
+  // 1. GRADIENT MESH ANIMATED CANVAS BACKGROUND
+  // =========================================
+  const canvas = document.getElementById("mesh-canvas");
+  const ctx = canvas.getContext("2d");
+  let blobs = [];
+
+  function resizeCanvas() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  const isDark = () => document.documentElement.getAttribute("data-theme") !== "light";
+
+  function createBlobs() {
+    blobs = [];
+    const colors = [
+      [172, 66, 50],   // cyan accent
+      [217, 91, 60],   // blue accent
+      [280, 70, 60],   // purple
+    ];
+    for (let i = 0; i < 5; i++) {
+      const c = colors[i % colors.length];
+      blobs.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: 180 + Math.random() * 140,
+        hue: c[0], sat: c[1], lit: c[2],
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+      });
+    }
+  }
+  createBlobs();
+
+  function drawMesh() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    blobs.forEach(b => {
+      const alpha = isDark() ? 0.12 : 0.08;
+      const grad = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+      grad.addColorStop(0, `hsla(${b.hue}, ${b.sat}%, ${b.lit}%, ${alpha})`);
+      grad.addColorStop(1, `hsla(${b.hue}, ${b.sat}%, ${b.lit}%, 0)`);
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      b.x += b.vx;
+      b.y += b.vy;
+      if (b.x < -b.r || b.x > canvas.width + b.r) b.vx *= -1;
+      if (b.y < -b.r || b.y > canvas.height + b.r) b.vy *= -1;
+    });
+    requestAnimationFrame(drawMesh);
+  }
+  drawMesh();
+
+  // =========================================
+  // 2. TYPEWRITER CYCLING ANIMATION
+  // =========================================
+  const typingEl = document.getElementById("typing-text");
+  if (typingEl) {
+    const words = ["Backend APIs", "Go Services", "IoT Systems", "AI Solutions", "Fintech Apps"];
+    let wordIdx = 0, charIdx = 0, isDeleting = false;
+
+    function typeWriter() {
+      const currentWord = words[wordIdx];
+      if (!isDeleting) {
+        typingEl.textContent = currentWord.substring(0, charIdx + 1);
+        charIdx++;
+        if (charIdx === currentWord.length) {
+          setTimeout(() => { isDeleting = true; typeWriter(); }, 1800);
+          return;
+        }
+      } else {
+        typingEl.textContent = currentWord.substring(0, charIdx - 1);
+        charIdx--;
+        if (charIdx === 0) {
+          isDeleting = false;
+          wordIdx = (wordIdx + 1) % words.length;
+        }
+      }
+      setTimeout(typeWriter, isDeleting ? 60 : 100);
+    }
+    setTimeout(typeWriter, 800);
+  }
+
+  // =========================================
+  // 3. SCROLL REVEAL ANIMATION
+  // =========================================
+  const revealEls = document.querySelectorAll(".reveal");
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // =========================================
+  // 4. ANIMATED STAT COUNTERS
+  // =========================================
+  const statNumbers = document.querySelectorAll(".stat-number");
+  let statsAnimated = false;
+
+  function animateCounter(el, target, duration = 1500) {
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) {
+        el.textContent = target;
+        clearInterval(timer);
+      } else {
+        el.textContent = Math.floor(start);
+      }
+    }, 16);
+  }
+
+  const statsBar = document.getElementById("stats-bar");
+  if (statsBar) {
+    const statsObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !statsAnimated) {
+        statsAnimated = true;
+        statNumbers.forEach(el => {
+          animateCounter(el, parseInt(el.dataset.target));
+        });
+      }
+    }, { threshold: 0.3 });
+    statsObserver.observe(statsBar);
+  }
+
 });
