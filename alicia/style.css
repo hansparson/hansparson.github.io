@@ -407,7 +407,6 @@ a {
   object-fit: cover;
   border-radius: 12px;
   filter: grayscale(10%) contrast(105%);
-  mix-blend-mode: multiply; /* Blends white/light background out! */
 }
 
 .hero-image-wrapper:hover {
